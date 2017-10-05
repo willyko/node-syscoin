@@ -1,6 +1,6 @@
-# Dockerfile for running node-bitcoin tests
-FROM freewil/bitcoin-testnet-box
-MAINTAINER Sean Lavine <lavis88@gmail.com>
+# Dockerfile for running node-syscoin tests
+FROM syscoin/syscoin-testnet-box
+MAINTAINER Syscoin Team <wko@blockchainfoundry.co>
 
 # install node.js
 USER root
