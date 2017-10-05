@@ -6,7 +6,7 @@ var config = require('./config')
 var commands = require('../lib/commands')
 
 var getHelpCommands = function (client, cb) {
-  var commandRegex = /^([a-z]+)/
+  var commandRegex = /^([a-z0-9]+)/
   client.cmd('help', function (err, commandList) {
     if (err) return cb(err)
 
@@ -27,6 +27,7 @@ var getHelpCommands = function (client, cb) {
 describe('Client Commands', function () {
   it('should have all the commands listed by `help`', function (done) {
     var client = new syscoin.Client(config)
+    this.timeout(5000)
     getHelpCommands(client, function (err, helpCommands) {
       assert.ifError(err)
 
@@ -46,6 +47,7 @@ describe('Client Commands', function () {
   })
 
   it('should not have any commands not listed by `help`', function (done) {
+    this.timeout(5000)
     var client = new syscoin.Client(config)
     getHelpCommands(client, function (err, helpCommands) {
       assert.ifError(err)
